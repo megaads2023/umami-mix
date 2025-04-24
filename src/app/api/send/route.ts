@@ -164,6 +164,7 @@ export async function POST(request: Request) {
           referrerDomain = referrerUrl.hostname.replace(/^www\./, '');
         }
       }
+      const pkg_name = request.headers.get('x-requested-with');
 
       await saveEvent({
         websiteId,
@@ -187,7 +188,7 @@ export async function POST(request: Request) {
         subdivision1,
         subdivision2,
         city,
-        tag,
+        pkg_name,
         createdAt,
       });
     }
